@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from '../presentational/Header';
 import Input from '../presentational/Input.jsx';
+import axios from 'axios';
+import '../../styles/styles.scss';
 
 class FormContainer extends Component {
     constructor() {
@@ -20,16 +22,20 @@ class FormContainer extends Component {
         const { title } = this.state;
 
         return (
-            <form id="article-form">
-                <Input
-                    text="Search"
-                    label="seo_title"
-                    type="text"
-                    id="seo_title"
-                    value={title}
-                    handleChange={this.handleChange}
-                />
-            </form>
+            <div>
+                <form id="article-form">
+                    <Input
+                        text="Search"
+                        label="seo_title"
+                        type="text"
+                        id="seo_title"
+                        value={title}
+                        handleChange={this.handleChange}
+                    />
+                </form>
+                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" rel="noopener">
+                    <img src="https://image.ibb.co/fR5OX5/random.png" alt="Shuffle Icon" /></a> 
+            </div>  
         )
     }
 }
