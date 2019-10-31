@@ -15,11 +15,14 @@ class FormContainer extends Component {
     }
 
     handleChange(event) {
-        const wikiURL = `http://example.org/w/api.php`;
+        const wikiURL = `http://example.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json`;
 
         event.preventDefault();
 
         this.setState({ [event.target.id]: event.target.value})
+        const searchQuery = event.target.value.trim()
+        
+        console.log(searchQuery)
     }
    
     render() {
