@@ -15,11 +15,13 @@ class FormContainer extends Component {
     }
 
     handleChange(event) {
+        const wikiURL = `http://example.org/w/api.php`;
+
         event.preventDefault();
-        
+
         this.setState({ [event.target.id]: event.target.value})
     }
-
+   
     render() {
         const { title } = this.state;
 
@@ -28,10 +30,10 @@ class FormContainer extends Component {
                 <form id="article-form">
                     <Input
                         text="Search"
-                        label="seo_title"
                         type="text"
-                        id="seo_title"
+                        id="title"
                         // maybe set value attr to title
+                        value={this.state.title}
                         handleChange={this.handleChange}
                     />
                 </form>
