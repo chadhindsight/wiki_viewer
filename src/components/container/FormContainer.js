@@ -29,7 +29,7 @@ class FormContainer extends Component {
                         label="seo_title"
                         type="text"
                         id="seo_title"
-                        value={title}
+                        // maybe set value attr to title
                         handleChange={this.handleChange}
                     />
                 </form>
