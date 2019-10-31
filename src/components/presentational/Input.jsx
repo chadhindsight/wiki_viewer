@@ -16,7 +16,6 @@ const Input =({label, text, type, id, value, handleChange}) => (
 
 
 Input.propTypes = {
-    label: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
