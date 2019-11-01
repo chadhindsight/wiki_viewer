@@ -11,7 +11,7 @@ class FormContainer extends Component {
             title: ""
         }
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
      fetchResults(searchQuery) {
@@ -26,12 +26,16 @@ class FormContainer extends Component {
 }
     handleChange(event) {
         event.preventDefault();
-
         this.setState({ [event.target.id]: event.target.value})
-        const searchQuery = event.target.value.trim()
-        this.fetchResults(searchQuery);
     }
-    
+
+    handleSubmit() {
+        event.preventDefault();
+
+        const { searchQuery } = this.state.title;
+        this.fetchResults(searchQuery);
+        
+    }
     render() {
         const { title } = this.state;
 
