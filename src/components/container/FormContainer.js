@@ -11,11 +11,18 @@ class FormContainer extends Component {
             title: ""
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleChange.bind(this);
     }
     
      fetchResults(searchQuery) {
-    const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchQuery}`;
-    console.log(endpoint);
+        const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchQuery}`;
+    
+         fetch(endpoint)
+             .then(response => response.json())
+             .then(data => {
+                 console.log(data);
+             })
+             .catch(() => console.log('An error occurred'));
 }
     handleChange(event) {
         event.preventDefault();
@@ -30,7 +37,7 @@ class FormContainer extends Component {
 
         return (
             <div>
-                <form id="article-form" onSubmit={this.searchTing}>
+                <form id="article-form" onSubmit={this.handleSubmit}>
                     <Input
                         text="Search"
                         type="text"
