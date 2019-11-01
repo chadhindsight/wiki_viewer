@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from '../presentational/Header';
 import Input from '../presentational/Input.jsx';
-import axios from 'axios';
 import '../../styles/styles.scss';
 
 class FormContainer extends Component {
@@ -13,24 +12,25 @@ class FormContainer extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
-
+    
+     fetchResults(searchQuery) {
+    const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchQuery}`;
+    console.log(endpoint);
+}
     handleChange(event) {
-        const wikiURL = `http://example.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json`;
-
         event.preventDefault();
 
         this.setState({ [event.target.id]: event.target.value})
         const searchQuery = event.target.value.trim()
-        
-        console.log(searchQuery)
+        this.fetchResults(searchQuery);
     }
-   
+    
     render() {
         const { title } = this.state;
 
         return (
             <div>
-                <form id="article-form">
+                <form id="article-form" onSubmit={this.searchTing}>
                     <Input
                         text="Search"
                         type="text"
