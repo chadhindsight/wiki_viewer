@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from '../presentational/Header';
+import RandomLink from '../presentational/RandomLink';
 import Input from '../presentational/Input.jsx';
 import '../../styles/styles.scss';
 
@@ -51,8 +52,7 @@ class FormContainer extends Component {
                         handleChange={this.handleChange}
                     />
                 </form>
-                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" rel="noopener">
-                    <img src="https://image.ibb.co/fR5OX5/random.png" alt="Shuffle Icon" /></a> 
+                <RandomLink />
             </div>  
         )
     }
