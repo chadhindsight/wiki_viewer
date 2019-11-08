@@ -23,7 +23,7 @@ class FormContainer extends Component {
              .then(data => {
                  console.log(data);
              })
-             .catch(() => console.log('An error occurred'));
+             .catch(() => console.log('Error! Unable to show results'));
 }
     handleChange(event) {
         event.preventDefault();
