@@ -60,5 +60,5 @@ class FormContainer extends Component {
 const wrapper = document.getElementById("create-article-form");
 wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
 
-//Export Form container to be used in index.js
+//Export the form container to be used in index.js
 export default FormContainer;
