@@ -21,7 +21,7 @@ class FormContainer extends Component {
          fetch(endpoint)
              .then(response => response.json())
              .then(data => {
-                 console.log(data);
+                 const results = data.query.search;
              })
              .catch(() => console.log('Error! Unable to show results'));
 }
