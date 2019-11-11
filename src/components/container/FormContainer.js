@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from '../presentational/Header';
 import RandomLink from '../presentational/RandomLink';
+import SearchResults from '../presentational/SearchResults';
 import Input from '../presentational/Input.jsx';
 import '../../styles/styles.scss';
 
@@ -22,7 +23,8 @@ class FormContainer extends Component {
              .then(response => response.json())
              .then(data => {
                  const results = data.query.search;
-             })
+                 console.log(results);
+                })
              .catch(() => console.log('Error! Unable to show results'));
 }
     handleChange(event) {
@@ -53,6 +55,7 @@ class FormContainer extends Component {
                     />
                 </form>
                 <RandomLink />
+                <section></section>
             </div>  
         )
     }
