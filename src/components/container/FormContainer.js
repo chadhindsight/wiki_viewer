@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from '../presentational/Header';
 import RandomLink from '../presentational/RandomLink';
-import SearchResults from '../presentational/SearchResults';
 import Input from '../presentational/Input.jsx';
 import '../../styles/styles.scss';
 
@@ -10,7 +9,8 @@ class FormContainer extends Component {
     constructor() {
         super()
         this.state = {
-            title: ""
+            title: "",
+            result: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +23,12 @@ class FormContainer extends Component {
              .then(response => response.json())
              .then(data => {
                  const results = data.query.search;
-                 console.log(results);
+                 
+                 results.forEach(result => {
+                     
+                    const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+                    this.setState({result: result.title});
+                 });
                 })
              .catch(() => console.log('Error! Unable to show results'));
 }
@@ -55,7 +60,7 @@ class FormContainer extends Component {
                     />
                 </form>
                 <RandomLink />
-                <section></section>
+        <section>{this.state.result}</section>
             </div>  
         )
     }
