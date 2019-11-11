@@ -27,6 +27,7 @@ class FormContainer extends Component {
                  results.forEach(result => {
                      
                     const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+                    // Double check what is being outputted. Consult movie_list for inspo
                     this.setState({result: result.title});
                  });
                 })
