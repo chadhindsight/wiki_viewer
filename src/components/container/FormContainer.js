@@ -27,6 +27,8 @@ class FormContainer extends Component {
                  results.forEach(result => {
                      
                     const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+                    this.setState({searchResults: searchResults.push(result.title)})
+
                  });
                 })
              .catch(() => console.log('Error! Unable to show results'));
@@ -59,7 +61,7 @@ class FormContainer extends Component {
                     />
                 </form>
                 <RandomLink />
-        <section></section>
+    <section>{this.state.searchResults}</section>
             </div>  
         )
     }
