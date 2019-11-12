@@ -9,7 +9,8 @@ class FormContainer extends Component {
     constructor() {
         super()
         this.state = {
-            title: ""
+            title: "",
+            searchResults: []
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
