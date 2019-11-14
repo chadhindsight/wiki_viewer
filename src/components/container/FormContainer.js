@@ -26,14 +26,13 @@ class FormContainer extends Component {
                  
                  results.forEach(result => {
                      
-                    const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
                  });
                 })
              .catch(() => console.log('Error! Unable to show results'));
 }
-// Make display results it's own function. Follow movieList!
-displayResults(results) {
 
+displayResults(results) {
+// Loop over results array 
 }
     handleChange(event) {
         event.preventDefault();
