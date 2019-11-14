@@ -27,12 +27,11 @@ class FormContainer extends Component {
                  results.forEach(result => {
                      
                     const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
-                    this.setState({searchResults: searchResults.push(result.title)})
-
                  });
                 })
              .catch(() => console.log('Error! Unable to show results'));
 }
+// Make display results it's own function. Follow movieList!
     handleChange(event) {
         event.preventDefault();
         this.setState({ [event.target.id]: event.target.value})
@@ -61,7 +60,7 @@ class FormContainer extends Component {
                     />
                 </form>
                 <RandomLink />
-    <section>{this.state.searchResults}</section>
+    <section></section>
             </div>  
         )
     }
