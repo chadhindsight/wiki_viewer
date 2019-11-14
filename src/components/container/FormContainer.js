@@ -24,15 +24,17 @@ class FormContainer extends Component {
              .then(data => {
                  const results = data.query.search;
                  
-                 results.forEach(result => {
-                     
-                 });
+               displayResults(results);
                 })
              .catch(() => console.log('Error! Unable to show results'));
 }
 
 displayResults(results) {
-// Loop over results array 
+    // Loop over results array 
+    results.forEach(result => {
+        const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+
+    });
 }
     handleChange(event) {
         event.preventDefault();
