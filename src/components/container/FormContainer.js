@@ -32,8 +32,8 @@ class FormContainer extends Component {
              .catch(() => console.log('Error! Unable to show results'));
 }
 // Make display results it's own function. Follow movieList!
-displayResults() {
-    
+displayResults(results) {
+
 }
     handleChange(event) {
         event.preventDefault();
