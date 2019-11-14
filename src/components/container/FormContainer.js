@@ -23,19 +23,16 @@ class FormContainer extends Component {
              .then(response => response.json())
              .then(data => {
                  const results = data.query.search;
-                 
-               displayResults(results);
+                
+                 results.forEach(result => {
+                     const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+                     console.log(result.title)
+
+                 });
                 })
              .catch(() => console.log('Error! Unable to show results'));
 }
 
-displayResults(results) {
-    // Loop over results array 
-    results.forEach(result => {
-        const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
-
-    });
-}
     handleChange(event) {
         event.preventDefault();
         this.setState({ [event.target.id]: event.target.value})
@@ -49,7 +46,6 @@ displayResults(results) {
         
     }
     render() {
-        const { title } = this.state;
 
         return (
             <div>
@@ -64,7 +60,7 @@ displayResults(results) {
                     />
                 </form>
                 <RandomLink />
-    <section></section>
+                <ul>{}</ul>
             </div>  
         )
     }
