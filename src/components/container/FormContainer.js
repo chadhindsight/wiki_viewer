@@ -9,8 +9,7 @@ class FormContainer extends Component {
     constructor() {
         super()
         this.state = {
-            title: "",
-            searchResults: []
+            title: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,6 +26,7 @@ class FormContainer extends Component {
              .then(response => response.json())
              .then(data => {
                  const results = data.query.search;
+                 console.log(results)
                  results.forEach(result => {
                     //  const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
                     // //  Maybe put results in by using insertAdjacentHTML? Cant seem to do it without it
@@ -54,10 +54,8 @@ class FormContainer extends Component {
         this.setState({ [event.target.id]: event.target.value })
         
         const searchQuery  = this.state.title;
-        console.log(searchQuery)
-        this.fetchResults(searchQuery);
-            
-        }
+        this.fetchResults(searchQuery);    
+    }
        
 
     
