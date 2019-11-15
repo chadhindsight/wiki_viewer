@@ -18,7 +18,11 @@ class FormContainer extends Component {
     
      fetchResults(searchQuery) {
         const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchQuery}`;
-    
+        
+         const searchResults = document.querySelector('#d');
+         // Remove all child elements
+         searchResults.innerHTML = '';
+
          fetch(endpoint)
              .then(response => response.json())
              .then(data => {
@@ -27,9 +31,16 @@ class FormContainer extends Component {
                  results.forEach(result => {
                      const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
                      console.log(result.title)
-                    //  Maybe put results in by using insertAdjacentHTML?
-                     const searchResults
-
+                    //  Maybe put results in by using insertAdjacentHTML? Cant seem to do it without it
+                     searchResults.insertAdjacentHTML('beforeend',
+                         `<div class="resultItem">
+                            <h3 class="resultItem-title">
+                            <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
+                            </h3>
+                         <span class="resultItem-snippet">${result.snippet}</span><br>
+                            <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
+                        </div>`
+                     );
                  });
                 })
              .catch(() => console.log('Error! Unable to show results'));
@@ -62,7 +73,7 @@ class FormContainer extends Component {
                     />
                 </form>
                 <RandomLink />
-                <ul>{}</ul>
+                <section id="d">{this.state.results}</section>
             </div>  
         )
     }
