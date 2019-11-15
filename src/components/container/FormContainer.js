@@ -27,6 +27,8 @@ class FormContainer extends Component {
                  results.forEach(result => {
                      const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
                      console.log(result.title)
+                    //  Maybe put results in by using insertAdjacentHTML?
+                     const searchResults
 
                  });
                 })
