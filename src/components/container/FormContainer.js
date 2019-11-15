@@ -27,20 +27,18 @@ class FormContainer extends Component {
              .then(response => response.json())
              .then(data => {
                  const results = data.query.search;
-                
                  results.forEach(result => {
-                     const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
-                     console.log(result.title)
-                    //  Maybe put results in by using insertAdjacentHTML? Cant seem to do it without it
-                     searchResults.insertAdjacentHTML('beforeend',
-                         `<div class="resultItem">
-                            <h3 class="resultItem-title">
-                            <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
-                            </h3>
-                         <span class="resultItem-snippet">${result.snippet}</span><br>
-                            <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
-                        </div>`
-                     );
+                    //  const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+                    // //  Maybe put results in by using insertAdjacentHTML? Cant seem to do it without it
+                    //  searchResults.insertAdjacentHTML('beforeend',
+                    //      `<div class="resultItem">
+                    //         <h3 class="resultItem-title">
+                    //         <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
+                    //         </h3>
+                    //      <span class="resultItem-snippet">${result.snippet}</span><br>
+                    //         <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
+                    //     </div>`
+                    //  );
                  });
                 })
              .catch(() => console.log('Error! Unable to show results'));
@@ -51,13 +49,18 @@ class FormContainer extends Component {
         this.setState({ [event.target.id]: event.target.value})
     }
 
-    handleSubmit() {
+    handleSubmit(event) {
         event.preventDefault();
-
-        const { searchQuery } = this.state.title;
-        this.fetchResults(searchQuery);
+        this.setState({ [event.target.id]: event.target.value })
         
-    }
+        const searchQuery  = this.state.title;
+        console.log(searchQuery)
+        this.fetchResults(searchQuery);
+            
+        }
+       
+
+    
     render() {
 
         return (
