@@ -36,7 +36,7 @@ class FormContainer extends Component {
                             <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
                             </h3>
                          <span class="resultItem-snippet">${result.snippet}</span><br>
-                            <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
+                            <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">Learn More</a>
                         </div>`
                      );
                  });
