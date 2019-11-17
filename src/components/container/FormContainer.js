@@ -51,7 +51,6 @@ class FormContainer extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({ [event.target.id]: event.target.value })
         
         const searchQuery  = this.state.title;
         this.fetchResults(searchQuery);    
