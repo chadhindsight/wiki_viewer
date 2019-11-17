@@ -28,17 +28,17 @@ class FormContainer extends Component {
                  const results = data.query.search;
                  console.log(results)
                  results.forEach(result => {
-                    //  const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
-                    // //  Maybe put results in by using insertAdjacentHTML? Cant seem to do it without it
-                    //  searchResults.insertAdjacentHTML('beforeend',
-                    //      `<div class="resultItem">
-                    //         <h3 class="resultItem-title">
-                    //         <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
-                    //         </h3>
-                    //      <span class="resultItem-snippet">${result.snippet}</span><br>
-                    //         <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
-                    //     </div>`
-                    //  );
+                     const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+                    //Put results in by using insertAdjacentHTML? Consider reworking using purely react in the future
+                     searchResults.insertAdjacentHTML('beforeend',
+                         `<div class="resultItem">
+                            <h3 class="resultItem-title">
+                            <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
+                            </h3>
+                         <span class="resultItem-snippet">${result.snippet}</span><br>
+                            <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
+                        </div>`
+                     );
                  });
                 })
              .catch(() => console.log('Error! Unable to show results'));
