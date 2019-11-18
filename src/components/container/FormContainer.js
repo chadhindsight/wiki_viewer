@@ -63,6 +63,7 @@ class FormContainer extends Component {
         return (
             <div>
                 <form id="article-form" onSubmit={this.handleSubmit}>
+                    <Header/>
                     <Input
                         text="Search"
                         type="text"
@@ -71,8 +72,8 @@ class FormContainer extends Component {
                         value={this.state.title}
                         handleChange={this.handleChange}
                     />
-                </form>
                 <RandomLink />
+                </form>
                 <section id="d">{this.state.results}</section>
             </div>  
         )
