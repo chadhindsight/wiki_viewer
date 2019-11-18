@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Header = () =>(
-    <header>
+    <div>
         <h1>WIKI STUFF</h1>
-        <p>Search for A Topic</p>
-    </header>
+        <img src="https://image.ibb.co/e6vOFQ/wikipedia.png" alt="Wikipedia Logo"/>
+    </div>
 )
 export default Header;
