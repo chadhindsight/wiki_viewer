@@ -12,5 +12,13 @@
 
 a{
     color: aliceblue;
+    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: #292929;
 }
 //Maybe move searchbar content to the middle and make bigger
