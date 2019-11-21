@@ -72,7 +72,7 @@ class FormContainer extends Component {
                         value={this.state.title}
                         handleChange={this.handleChange}
                     />
-                <RandomLink />
+                    <RandomLink id="icon" />
                 </form>
                 <section id="d">{this.state.results}</section>
             </div>  
