@@ -30,7 +30,7 @@ class FormContainer extends Component {
                  console.log(results)
                  results.forEach(result => {
                      const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
-                    //Put results in by using insertAdjacentHTML? Consider reworking using purely react in the future
+                    //Put results in by using insertAdjacentHTML? Consider reworking using purely react at some point
                      searchResults.insertAdjacentHTML('beforeend',
                          `<div class="resultItem">
                             <h3 class="resultItem-title">
