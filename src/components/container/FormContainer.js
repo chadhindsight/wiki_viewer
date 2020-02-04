@@ -22,12 +22,12 @@ class FormContainer extends Component {
          const searchResults = document.querySelector('#d');
          // Remove all child elements
          searchResults.innerHTML = '';
-
+        // Global fetch() method used to make requests
          fetch(endpoint)
              .then(response => response.json())
              .then(data => {
                  const results = data.query.search;
-                //  console.log(results)
+
                  results.forEach(result => {
                      const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
                     //Put results in by using insertAdjacentHTML? Consider reworking using purely react at some point
