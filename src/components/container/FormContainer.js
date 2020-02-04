@@ -27,7 +27,7 @@ class FormContainer extends Component {
              .then(response => response.json())
              .then(data => {
                  const results = data.query.search;
-                 console.log(results)
+                //  console.log(results)
                  results.forEach(result => {
                      const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
                     //Put results in by using insertAdjacentHTML? Consider reworking using purely react at some point
