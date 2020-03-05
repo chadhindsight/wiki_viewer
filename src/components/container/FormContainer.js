@@ -20,7 +20,7 @@ class FormContainer extends Component {
         const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchQuery}`;
         
          const searchResults = document.querySelector('#d');
-         // This all child elements
+         // This removes all child elements
          searchResults.innerHTML = '';
         // Global fetch() method used to make requests
          fetch(endpoint)
